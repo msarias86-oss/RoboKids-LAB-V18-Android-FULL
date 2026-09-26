@@ -8,8 +8,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - name: Verify Android source package
+        run: |
+          test -f RoboKids_V20_Android_FULL_SOURCE_OK.zip
+          unzip -t RoboKids_V20_Android_FULL_SOURCE_OK.zip
       - name: Extract source
-        run: unzip -o RoboKids_V20_Android_FULL_SOURCE.zip
+        run: unzip -o RoboKids_V20_Android_FULL_SOURCE_OK.zip
       - uses: actions/setup-java@v4
         with:
           distribution: temurin
