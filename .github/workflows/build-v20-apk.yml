@@ -14,6 +14,11 @@ jobs:
           unzip -t RoboKids_V20_Android_FULL_SOURCE_OK.zip
       - name: Extract source
         run: unzip -o RoboKids_V20_Android_FULL_SOURCE_OK.zip
+      - name: Patch NanoHTTPD compatibility
+        run: |
+          sed -i 's/public int getListeningPort()/public int getRoboKidsPort()/g' app/src/main/java/com/robokidslab/nivel1/EmbeddedRoboKidsServer.java
+          sed -i 's/server.getListeningPort()/server.getRoboKidsPort()/g' app/src/main/java/com/robokidslab/nivel1/MainActivity.java
+          grep -R "getRoboKidsPort" -n app/src/main/java/com/robokidslab/nivel1
       - uses: actions/setup-java@v4
         with:
           distribution: temurin
