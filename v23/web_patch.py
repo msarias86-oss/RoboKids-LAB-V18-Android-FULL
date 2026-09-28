@@ -25,7 +25,7 @@ h = h.replace(
     '<a class="btn pink" href="https://acebott.com/acecode/" target="_blank" rel="noopener">Abrir Estación →</a>'
 )
 h = h.replace(
-    '<a class="btn pink" href="?access=student&role=station'+qRoom+'">Abrir Estación →</a>',
+    "<a class=\"btn pink\" href=\"?access=student&role=station'+qRoom+'\">Abrir Estación →</a>",
     '<a class="btn pink" href="https://acebott.com/acecode/" target="_blank" rel="noopener">Abrir Estación →</a>'
 )
 
